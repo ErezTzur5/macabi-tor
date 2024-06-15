@@ -6,7 +6,7 @@ import pytesseract
 import pygetwindow as gw
 
 
-def check_date(date_to_check='15/06/2024', image_path='google.png'):
+def check_date(date_to_check, image_path='google.png'):
     """
     Check if the given date is present in the text extracted from the screenshot.
     """
@@ -49,7 +49,7 @@ def send_input(text):
     time.sleep(0.7)
 
 
-def perform_task_sequence(bday,city,id_number):
+def perform_task_sequence(bday,city,id_number,date_to_check):
     """
     Perform a sequence of tasks to get the required information.
     """
@@ -79,7 +79,7 @@ def perform_task_sequence(bday,city,id_number):
         
         screen_shot()
         
-        if check_date():
+        if check_date(date_to_check):
             click_on_element(find_image("./assets/bhar.PNG"))
             time.sleep(1)
             
@@ -99,14 +99,15 @@ def perform_task_sequence(bday,city,id_number):
             print("NO DATE AVAILABLE")
             pyautogui.press("f5")
             time.sleep(4)
-            perform_task_sequence()
+            perform_task_sequence(bday,city,id_number,date_to_check)
     except Exception as e:
         print(f"Error: {e}")
-        perform_task_sequence()
+        perform_task_sequence(bday,city,id_number,date_to_check)
 
 
 if __name__ == "__main__":
     bday = "27071999"
     city = "רמת גן"
     id_number = "207888355"
-    perform_task_sequence(bday,city,id_number)
+    date_to_check = '15/06/2024'
+    perform_task_sequence(bday,city,id_number,date_to_check)

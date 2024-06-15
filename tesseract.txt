@@ -1,0 +1,9 @@
+user variables:
+
+var name : TESSDATA_PREFIX
+var value : C:\Program Files\Tesseract-OCR\tessdata
+
+
+
+system variables : 
+path > C:\Program Files\Tesseract-OCR
