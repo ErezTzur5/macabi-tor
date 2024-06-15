@@ -54,6 +54,7 @@ def perform_task_sequence(bday,city,id_number,date_to_check):
     Perform a sequence of tasks to get the required information.
     """
     try:
+        time.sleep(2)
         click_on_element(find_image("./assets/type_of_tor.PNG"))
         click_on_element(find_image("./assets/tor_shinanit.PNG"))
         click_on_element(find_image("./assets/bday.PNG"))
@@ -88,7 +89,7 @@ def perform_task_sequence(bday,city,id_number,date_to_check):
             time.sleep(1)
             
             click_on_element(find_image("./assets/hamsheh.PNG"))
-            time.sleep(4)
+            time.sleep(6)
             
             click_on_element(find_image("./assets/read_and_allow.PNG", confidence=0.7))
             time.sleep(1)
@@ -109,5 +110,5 @@ if __name__ == "__main__":
     bday = "27071999"
     city = "רמת גן"
     id_number = "207888355"
-    date_to_check = '15/06/2024'
+    date_to_check = '05/12/2024'
     perform_task_sequence(bday,city,id_number,date_to_check)
